@@ -13,6 +13,7 @@ namespace StockGamePrototype1
     class DBAccess
     {
         String connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Edward\Desktop\StockGamePrototype1\StockGamePrototype1\Database1.mdf;Integrated Security=True";
+        //String connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\StockGame-master\StockGamePrototype1\Database1.mdf;Integrated Security=True;Connect Timeout=30";
 
         private string cutString(String fullString)
         {
