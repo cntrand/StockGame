@@ -53,7 +53,7 @@ namespace StockGamePrototype1
         private bool checkCred()
         {
             String email = usernameTextBox.Text;
-            String password = getPassword(email);
+            String password = dBAccess.getPassword(email);
             String pw = null;
 
             if (password != null)
@@ -73,35 +73,6 @@ namespace StockGamePrototype1
             
             return false;
             
-        }
-
-        private String getPassword(string email)
-        {
-            String password = null;
-
-            String connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Edward\Desktop\StockGamePrototype1\StockGamePrototype1\Database1.mdf;Integrated Security=True";
-            //String connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\StockGame-master\StockGamePrototype1\Database1.mdf;Integrated Security=True;Connect Timeout=30";
-            System.Data.SqlClient.SqlConnection sqlConnection = new System.Data.SqlClient.SqlConnection(connectionString);
-            String sql = "Select * from Investor where Email=@email";
-
-            System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand();
-            cmd.CommandType = System.Data.CommandType.Text;
-            cmd.CommandText = sql;
-            cmd.Parameters.AddWithValue("@email", email);
-            cmd.Connection = sqlConnection;
-
-            sqlConnection.Open();
-
-            using (var reader = cmd.ExecuteReader())
-            {
-                if (reader.Read())
-                {
-                    password = reader[4].ToString();
-                }
-            }
-
-            sqlConnection.Close();
-            return password;
         }
 
         private void addStock_Click(object sender, EventArgs e)

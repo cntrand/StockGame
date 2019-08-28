@@ -12,6 +12,8 @@ namespace StockGamePrototype1
 {
     public partial class CreateAccountForm : Form
     {
+        DBAccess dBAccess = new DBAccess();
+
         public CreateAccountForm()
         {
             InitializeComponent();
@@ -62,23 +64,7 @@ namespace StockGamePrototype1
                 return 0;
             }
 
-            string sql = "INSERT Investor(ID, Balance, Name, Email, Password) VALUES ";
-            sql = sql + "(" + id + ", " + balance +", '" + name + "', '" + email + "', '" + password + "')";
-
-            String connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Edward\Desktop\StockGamePrototype1\StockGamePrototype1\Database1.mdf;Integrated Security=True";
-            //String connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\StockGame-master\StockGamePrototype1\Database1.mdf;Integrated Security=True;Connect Timeout=30";
-            System.Data.SqlClient.SqlConnection sqlConnection = new System.Data.SqlClient.SqlConnection(connectionString);
-
-            System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand();
-            cmd.CommandType = System.Data.CommandType.Text;
-            cmd.CommandText = sql;
-            cmd.Connection = sqlConnection;
-
-            sqlConnection.Open();
-            cmd.ExecuteNonQuery();
-            sqlConnection.Close();
-
-            MessageBox.Show("Account created " + name);
+            dBAccess.createInvestor(id, name, email, balance, password);
 
             return 1;
         }

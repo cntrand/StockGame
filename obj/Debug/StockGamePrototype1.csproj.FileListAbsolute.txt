@@ -43,6 +43,8 @@ C:\Users\Edward\Desktop\StockGamePrototype1\StockGamePrototype1\obj\Debug\StockG
 C:\Users\Edward\Desktop\StockGamePrototype1\StockGamePrototype1\obj\Debug\StockGamePrototype1.ShortSaleForm.resources
 C:\Users\Edward\Desktop\StockGamePrototype1\StockGamePrototype1\obj\Debug\StockGamePrototype1.NewsStories.resources
 C:\Users\Edward\Desktop\StockGamePrototype1\StockGamePrototype1\obj\Debug\StockGamePrototype1.NewsUpdate.resources
+D:\StockGame\bin\Debug\Database1.mdf
+D:\StockGame\bin\Debug\Database1_log.ldf
 D:\StockGame\obj\Debug\StockGamePrototype1.AddBiasRecord.resources
 D:\StockGame\obj\Debug\StockGamePrototype1.NewStockForm.resources
 D:\StockGame\obj\Debug\StockGamePrototype1.CreateAccountForm.resources
@@ -62,10 +64,8 @@ D:\StockGame\obj\Debug\StockGamePrototype1.TradeForm.resources
 D:\StockGame\obj\Debug\StockGamePrototype1.WatchListForm.resources
 D:\StockGame\obj\Debug\StockGamePrototype1.csproj.GenerateResource.cache
 D:\StockGame\obj\Debug\StockGamePrototype1.csproj.CoreCompileInputs.cache
-D:\StockGame\bin\Debug\Database1.mdf
-D:\StockGame\bin\Debug\Database1_log.ldf
+D:\StockGame\obj\Debug\StockGamePrototype1.exe
+D:\StockGame\obj\Debug\StockGamePrototype1.pdb
 D:\StockGame\bin\Debug\StockGamePrototype1.exe.config
 D:\StockGame\bin\Debug\StockGamePrototype1.exe
 D:\StockGame\bin\Debug\StockGamePrototype1.pdb
-D:\StockGame\obj\Debug\StockGamePrototype1.exe
-D:\StockGame\obj\Debug\StockGamePrototype1.pdb

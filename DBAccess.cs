@@ -13,7 +13,7 @@ namespace StockGamePrototype1
     class DBAccess
     {
         String connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Edward\Desktop\StockGamePrototype1\StockGamePrototype1\Database1.mdf;Integrated Security=True";
-        //String connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\StockGame-master\StockGamePrototype1\Database1.mdf;Integrated Security=True;Connect Timeout=30";
+        //String connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\StockGame\Database1.mdf;Integrated Security=True;Connect Timeout=30";
 
         private string cutString(String fullString)
         {
@@ -257,7 +257,7 @@ namespace StockGamePrototype1
 
             System.Data.SqlClient.SqlConnection sqlConnection = new System.Data.SqlClient.SqlConnection(connectionString);
             //TODO: sql string
-            string sql = "Select * from Investor where Email=@email";
+            string sql = "Select ID from Investor where Email=@email";
 
             System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand();
             cmd.CommandType = System.Data.CommandType.Text;
@@ -277,6 +277,34 @@ namespace StockGamePrototype1
             sqlConnection.Close();
 
             return id;
+        }
+
+        public string getPassword(string email)
+        {
+            string password = null;
+
+             System.Data.SqlClient.SqlConnection sqlConnection = new System.Data.SqlClient.SqlConnection(connectionString);
+            //TODO: sql string
+            string sql = "Select Password from Investor where Email=@email";
+
+            System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand();
+            cmd.CommandType = System.Data.CommandType.Text;
+            cmd.CommandText = sql;
+            cmd.Parameters.AddWithValue("@email", email);
+            cmd.Connection = sqlConnection;
+
+            sqlConnection.Open();
+
+            using (var reader = cmd.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    password = reader[0].ToString();
+                }
+            }
+
+            sqlConnection.Close();
+            return password;
         }
 
         public decimal getInvestorBalance(int id)
@@ -374,6 +402,23 @@ namespace StockGamePrototype1
             MessageBox.Show("Investor with id " + id + " deleted");
         }
 
+        public void createInvestor(int id, string name, string email, int balance, string password){
+            string sql = "INSERT Investor(ID, Balance, Name, Email, Password) VALUES ";
+            sql = sql + "(" + id + ", " + balance +", '" + name + "', '" + email + "', '" + password + "')";
+
+            System.Data.SqlClient.SqlConnection sqlConnection = new System.Data.SqlClient.SqlConnection(connectionString);
+
+            System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand();
+            cmd.CommandType = System.Data.CommandType.Text;
+            cmd.CommandText = sql; 
+            cmd.Connection = sqlConnection;
+
+            sqlConnection.Open();
+            cmd.ExecuteNonQuery();
+            sqlConnection.Close();
+
+            MessageBox.Show("Account created " + name);
+        }
 
         /****************** PORTFOLIO DATABASE ACCESS ************************/
         public List<string> getAllPortfolioSymbols(int id)
