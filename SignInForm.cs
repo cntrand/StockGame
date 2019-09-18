@@ -53,7 +53,7 @@ namespace StockGamePrototype1
         private bool checkCred()
         {
             String email = usernameTextBox.Text;
-            String password = dBAccess.getPassword(email);
+            String password = dBAccess.getInvestorPassword(email);
             String pw = null;
 
             if (password != null)

@@ -69,3 +69,4 @@ D:\StockGame\obj\Debug\StockGamePrototype1.pdb
 D:\StockGame\bin\Debug\StockGamePrototype1.exe.config
 D:\StockGame\bin\Debug\StockGamePrototype1.exe
 D:\StockGame\bin\Debug\StockGamePrototype1.pdb
+D:\StockGame\obj\Debug\StockGamePrototype1.csprojResolveAssemblyReference.cache

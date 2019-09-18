@@ -119,15 +119,19 @@ namespace StockGamePrototype1
 
         private void rotateTicker()
         {
-            char[] temp_ticker = ticker_str.ToArray();
-            ticker_str = null;
-
-            for(int i=1; i < temp_ticker.Length; i++)
+            if(ticker_str != null)
             {
-                ticker_str += temp_ticker[i];
+                char[] temp_ticker = ticker_str.ToArray();
+            
+                ticker_str = null;
+
+                for(int i=1; i < temp_ticker.Length; i++)
+                {
+                    ticker_str += temp_ticker[i];
+                }
+                ticker_str += temp_ticker[0];
+                tickerTextBox.Text = ticker_str;
             }
-            ticker_str += temp_ticker[0];
-            tickerTextBox.Text = ticker_str;
         }
 
         private void fillTicker()
