@@ -12,8 +12,8 @@ namespace StockGamePrototype1
 {
     class DBAccess
     {
-        String connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\cntra\Source\repos\cntrand\StockGame\bin\debug\Database1.mdf;Integrated Security=True";
-        //String connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\StockGame\Database1.mdf;Integrated Security=True;Connect Timeout=30";
+        //String connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Edward\Desktop\StockGamePrototype1\StockGamePrototype1\Database1.mdf;Integrated Security=True";
+        String connectionString = @"Server=tcp:mysqlserver5701.database.windows.net,1433;Initial Catalog=stockDatabase;Persist Security Info=False;User ID=vgutierrez542;Password=BlueMan48;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
         private string cutString(String fullString)
         {
@@ -142,6 +142,7 @@ namespace StockGamePrototype1
 
             MessageBox.Show("Stock Name updated");
         }
+
         public void updateStockDescription(string symbol, string description)
         {
             System.Data.SqlClient.SqlConnection sqlConnection = new System.Data.SqlClient.SqlConnection(connectionString);
@@ -161,6 +162,7 @@ namespace StockGamePrototype1
 
             MessageBox.Show("Stock Description updated");
         }
+
         public void updateStockSector(string symbol, string sector)
         {
             System.Data.SqlClient.SqlConnection sqlConnection = new System.Data.SqlClient.SqlConnection(connectionString);
@@ -180,6 +182,7 @@ namespace StockGamePrototype1
 
             MessageBox.Show("Stock Sector updated");
         }
+
         public List<string> getAllStockSymbols()
         {
             List<string> stockSyms = new List<string>();
@@ -279,7 +282,7 @@ namespace StockGamePrototype1
             return id;
         }
 
-        public string getPassword(string email)
+        public string getInvestorPassword(string email)
         {
             string password = null;
 
@@ -503,6 +506,7 @@ namespace StockGamePrototype1
             sqlConnection.Close();
             return shares;
         }
+
         public void updatePortfolioShares(int id, string symbol, int shares)
         {
             System.Data.SqlClient.SqlConnection sqlConnection = new System.Data.SqlClient.SqlConnection(connectionString);
@@ -1043,7 +1047,6 @@ namespace StockGamePrototype1
 
             return shares;
         }
-
 
         public decimal getSaleLimitPrice(int id, string symbol, DateTime dateTime)
         {
@@ -2079,10 +2082,8 @@ namespace StockGamePrototype1
 
         }
 
-
-
-            /**********************DIVIDEND DATABASE ACCESS**************************/
-            public decimal getDividendPerShare(string symbol)
+        /**********************DIVIDEND DATABASE ACCESS**************************/
+        public decimal getDividendPerShare(string symbol)
         {
             decimal dividend = -1;
 
@@ -2165,6 +2166,7 @@ namespace StockGamePrototype1
 
             return revenue;
         }
+
         public DateTime getDividendDateTime(string symbol)
         {
             DateTime dateTime = new DateTime();
@@ -2237,7 +2239,6 @@ namespace StockGamePrototype1
             MessageBox.Show("Dividend deleted");
         }
 
-     
         /**********************INVESTOR DIVIDEND DATABASE ACCESS**************************/
         public List<string> getAllInvestorDividendSymbols(int id)
         {
@@ -2397,6 +2398,7 @@ namespace StockGamePrototype1
 
             return highTarget;
         }
+
         public decimal getBiasLowTarget(string symbol)
         {
             decimal lowTarget = -1;
@@ -2447,6 +2449,7 @@ namespace StockGamePrototype1
 
             MessageBox.Show("Bias Record High Target Updated");
         }
+
         public void updateBiasLowTarget(string symbol, decimal highTarget, decimal lowTarget)
         {
             string sql = "UPDATE Bias SET LowTarget = @lowTarget";
@@ -2469,6 +2472,7 @@ namespace StockGamePrototype1
 
             MessageBox.Show("Bias Record Low Target Updated");
         }
+
         public void addBias(string Symbol, decimal HighTarget, decimal LowTarget)
         {
             string sql = "INSERT Bias(Symbol, HighTarget, LowTarget) VALUES";
@@ -2491,6 +2495,7 @@ namespace StockGamePrototype1
 
             MessageBox.Show("New Bias Record Created");
         }
+
         public void deleteBias(string symbol)
         {
             System.Data.SqlClient.SqlConnection sqlConnection = new System.Data.SqlClient.SqlConnection(connectionString);
