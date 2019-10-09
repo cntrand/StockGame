@@ -13,7 +13,7 @@ namespace StockGamePrototype1
     class DBAccess
     {
         //String connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Edward\Desktop\StockGamePrototype1\StockGamePrototype1\Database1.mdf;Integrated Security=True";
-        String connectionString = @"Server=tcp:mysqlserver5701.database.windows.net,1433;Initial Catalog=stockDatabase;Persist Security Info=False;User ID=vgutierrez542;Password=BlueMan48;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+        String connectionString = @"Server=tcp:mysqlserver5701.database.windows.net,1433;Initial Catalog=stockDatabase;Persist Security Info=False;User ID=[user id];Password=[password];MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
         private string cutString(String fullString)
         {
